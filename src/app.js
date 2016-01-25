@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import InputBox from './components/input.js';
+import Root from './containers/root.js';
 
 
 render(
-  <InputBox />,
+  <Root />,
   document.getElementById('root')
 )

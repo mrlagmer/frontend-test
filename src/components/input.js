@@ -4,7 +4,8 @@ export default class InputBox extends Component {
   render() {
     return(
       <div>
-        <input type="text" />
+        <input id="counterName" type="text" />
+        <button id="counterAdd" onClick={this.props.handleCreate} >Save</button>
       </div>
     )
   }

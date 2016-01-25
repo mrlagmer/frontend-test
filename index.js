@@ -3,12 +3,21 @@ var app         = express();
 var bodyParser  = require("body-parser");
 var compression = require("compression");
 var morgan      = require("morgan");
-var PORT        = Number( process.env.PORT || 3000 );
+var PORT        = Number( process.env.PORT || 4000 );
 var Counters    = require("./lib/Counters");
+
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
 
 app.use(morgan("combined"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(allowCrossDomain);
 app.use(compression());
 
 function sendFile(name) {
