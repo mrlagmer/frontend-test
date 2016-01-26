@@ -6,6 +6,7 @@ export const RECEIVE_COUNTER = 'RECEIVE_COUNTER'
 export const REQUEST_COUNTER = 'REQUEST_COUNTER'
 export const ADD = 'ADD'
 export const SUBTRACT = 'SUBTRACT'
+export const DELETE = 'DELETE'
 
 export function add(id) {
     return{
@@ -17,6 +18,13 @@ export function add(id) {
 export function subtract(id) {
     return{
         type:SUBTRACT,
+        id
+    }
+}
+
+export function del(id) {
+    return{
+        type:DELETE,
         id
     }
 }
@@ -70,6 +78,32 @@ export function addCounter(id) {
       dispatch(add(id))
       return request
       .post('http://localhost:4000/api/v1/counter/inc')
+      .send({ id: id })
+      .set('Accept', 'application/json')
+      .end(function(err, res){
+        dispatch(fetchCounter())
+      });
+    }
+}
+
+export function subtractCounter(id) {
+    return function (dispatch) {
+      dispatch(subtract(id))
+      return request
+      .post('http://localhost:4000/api/v1/counter/dec')
+      .send({ id: id })
+      .set('Accept', 'application/json')
+      .end(function(err, res){
+        dispatch(fetchCounter())
+      });
+    }
+}
+
+export function delCounter(id) {
+    return function (dispatch) {
+      dispatch(del(id))
+      return request
+      .delete('http://localhost:4000/api/v1/counter')
       .send({ id: id })
       .set('Accept', 'application/json')
       .end(function(err, res){
