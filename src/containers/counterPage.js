@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { createCounter, requestCounter, receiveCounter, fetchCounter, saveCounter, addCounter, subtractCounter, delCounter } from '../state/Input'
+import { createCounter, requestCounter, receiveCounter, fetchCounter, saveCounter, addCounter, subtractCounter, delCounter } from '../state/Counters'
 import InputBox from '../components/input.js'
 import Counter from '../components/counter.js'
 
@@ -49,12 +49,11 @@ class CounterPage extends Component {
           <h1>Stu Beer Counting App</h1>
           </div>
           </div>
-          <InputBox handleCreate={this.handleCreate} />
+          <InputBox handleCreate={this.handleCreate} grandTotal={total} />
           <hr />
           {beerCounters.length >0 &&
               <Counter beerCounters={beerCounters} add={this.handleAdd} sub={this.handleSub} del={this.handleDel}  />
           }
-          <h3>Total {total}</h3>
         </div>
       );
     }

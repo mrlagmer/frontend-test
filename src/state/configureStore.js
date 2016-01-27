@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
-import counters from './Input'
+import counters from './Counters'
 let devMode = false;
 
 if (document.location.hostname == 'localhost') {
