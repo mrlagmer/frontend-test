@@ -1,4 +1,17 @@
-# SITEPOINT FRONTEND TEST
+# SITEPOINT FRONTEND TEST (Stu's Version)
+
+This has been built with React and Redux + some other helpers to give logging and middleware. I have created one test. Will add more once I better understand how to test using mocha.
+
+All the code is in the src folder and is using ES2015 so also using babel. babel also used to handle the React jsx to js.
+
+Folder Layout
+
+-- Components (contains the counters and the input for the UI. They are dumb components)
+-- Containers (Contains the container react commpoents or the smart components)
+-- css just has the css from foundation
+-- State (Has the redux confiure store and the Counters.js file that contains the actions + action creators and the reducer)
+-- Static is where the app is built into.
+-- Test contains the single test I wrote. 
 
 You need to create a simple counter application that can do the following:
 * Add a named counter to a list of counters

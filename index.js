@@ -27,8 +27,8 @@ function sendFile(name) {
 }
 
 app.get("/", sendFile("index.html"));
-app.get("/app.js", sendFile("app.js"));
-app.get("/app.css", sendFile("app.css"));
+app.get("/sitepoint-test.1.0.0.js", sendFile("sitepoint-test.1.0.0.js"));
+app.get("/sitepoint-test.1.0.0.css", sendFile("sitepoint-test.1.0.0.css"));
 
 // [json] GET /api/v1/counters
 // => [
